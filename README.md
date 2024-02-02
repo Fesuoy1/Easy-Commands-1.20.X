@@ -28,3 +28,6 @@ To be honest, i dont debug much since i made this when i was bored, so expect so
 
 ## Dependencies
 Since this mod uses CommandRegistrationCallback, You will need to install [Fabric API](https://modrinth.com/mod/fabric-api)!
+
+## This is Open Source.
+I probably will port this to future versions of minecraft available. But no plans for backporting. If you want to backport to older versions then you can [fork this repository](https://github.com/Fesuoy1/Easy-Commands-1.20.X/fork).
