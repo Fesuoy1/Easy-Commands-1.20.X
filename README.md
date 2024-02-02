@@ -21,7 +21,7 @@ Suppose you wanted a OP Netherite sword right now without using /enchant command
 - /midnight (basically /time set 18000)
 
 ### Note
-Commands ran through a command block will probably not work. so i recommand running it normally.
+Commands ran through a command block will probably not work. so i recommend running it normally.
 
 ### Bugs?
 To be honest, i dont debug much since i made this when i was bored, so expect some bugs that can occur.
