@@ -26,6 +26,7 @@ import net.minecraft.util.math.Vec3d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -165,6 +166,7 @@ public class EasyCommands implements ModInitializer {
 							return Command.SINGLE_SUCCESS;
 						})));
 
+		// Commands separated to support suggestions
 		KnockbackCommand.register(dispatcher);
 		KnockbackStickCommand.register(dispatcher);
 
@@ -209,20 +211,20 @@ public class EasyCommands implements ModInitializer {
 				.then(CommandManager.argument("allPlayers", EntityArgumentType.players())
 						.executes(context -> {
 							ServerCommandSource source = context.getSource();
-							ServerWorld world = source.getWorld();
-							ServerPlayerEntity player = source.getPlayer();
-							Vec3d pos = source.getPosition();
-							if (!EntityArgumentType.getPlayers(context, "allPlayers").isEmpty()) {
-								if (player != null) {
+                            Collection<ServerPlayerEntity> players = EntityArgumentType.getPlayers(context, "allPlayers");
+
+                            if (!players.isEmpty()) {
+								for (ServerPlayerEntity player : players) {
 									player.getHungerManager().add(20, 20);
 									player.playSound(SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1.0F, 1.0F);
 								}
-							} else if (EntityArgumentType.getPlayers(context, "allPlayers").isEmpty()) {
-								world.getPlayers().forEach(p -> p.getHungerManager().add(20, 20));
-								source.getWorld().playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+							} else {
+								source.sendError(Text.literal("No players found."));
 							}
+
 							return Command.SINGLE_SUCCESS;
 						})));
+
 
 		dispatcher.register(CommandManager.literal("day")
 				.requires(source -> source.hasPermissionLevel(4))
