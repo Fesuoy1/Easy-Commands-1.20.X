@@ -26,6 +26,8 @@ Commands ran through a command block will probably not work. so i recommand runn
 ### Bugs?
 To be honest, i dont debug much since i made this when i was bored, so expect some bugs that can occur.
 
+If you find any. You can report them [here](https://github.com/Fesuoy1/Easy-Commands-1.20.X/issues).
+
 ## Dependencies
 Since this mod uses CommandRegistrationCallback, You will need to install [Fabric API](https://modrinth.com/mod/fabric-api)!
 
