@@ -51,7 +51,7 @@ public class KnockbackStickCommand implements Command<ServerCommandSource> {
     private ItemStack enchantStick(int level) {
         ItemStack stack = new ItemStack(Items.STICK);
         stack.addEnchantment(Enchantments.KNOCKBACK, level);
-        stack.setCustomName(Text.literal("Knockback Stick"));
+        stack.setCustomName(Text.translatable("item.easy_commands.knockback_stick"));
         return stack;
     }
 }
