@@ -8,7 +8,9 @@
 		"Fesuoy"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/user/Fesuoy1"
+		"homepage": "https://modrinth.com/user/Fesuoy1",
+		"sources": "https://github.com/Fesuoy1/Easy-Commands-1.20.X",
+		"issues": "https://github.com/Fesuoy1/Easy-Commands-1.20.X/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/easy_commands/icon.png",
@@ -24,6 +26,9 @@
 			"org.mod.easy_commands.EasyCommandsDataGenerator"
 		]
 	},
+	"mixins": [
+		"easy_commands.mixins.json"
+	],
 	"depends": {
 		"fabricloader": ">=0.14.9",
 		"minecraft": "~1.20.4",
