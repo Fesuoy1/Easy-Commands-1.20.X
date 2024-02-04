@@ -19,7 +19,7 @@ Suppose you wanted a OP Netherite sword right now without using /enchant command
 - /noon (basically /time set 6000)
 - /night (basically /time set 13000)
 - /midnight (basically /time set 18000)
-- /enableExplosiveProjectiles (Makes all projectiles (eg. snowball, arrow) explode on collision)
+- /enableExplosiveProjectiles [explosionPower (number)] (Makes all projectiles (eg. snowball, arrow) explode on collision. Toggleable!)
 - /modifyTreeHeight [amount of height, default is 1] (Changes how tall the trees can be based on height. Only for fun!)
 - /explode [position (x, y, z), explosionPower (number), createFire true/false] (The 1st command with most arguments. Explodes on a set position with specified explosion power and creates fire on explosion!)
 
