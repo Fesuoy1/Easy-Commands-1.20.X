@@ -13,15 +13,18 @@ Suppose you wanted a OP Netherite sword right now without using /enchant command
 - /knockback [amount of levels] (for fun, put knockback on anything! can be 100 or whatever)
 - /knockbackstick [amount of levels] (simliar to the command above, give yourself a stick with knockback)
 - /enchantsword (Enchants any sword you are holding. Very OP!)
-- /heal [allPlayers true/false] (Heal yourself or all players to max health! true parameter not tested fully.)
+- /heal [allPlayers true/false, alsoFeed true/false] (Heal yourself or all players to max health! 1st true parameter not tested fully.)
 - /feed [allPlayers "@a or @s etc."] (Feeds you or other players! Not tested fully.)
 - /day (basically /time set 1000)
 - /noon (basically /time set 6000)
 - /night (basically /time set 13000)
 - /midnight (basically /time set 18000)
+- /enableExplosiveProjectiles (Makes all projectiles (eg. snowball, arrow) explode on collision)
+- /modifyTreeHeight [amount of height, default is 1] (Changes how tall the trees can be based on height. Only for fun!)
+- /explode [position (x, y, z), explosionPower (number), createFire true/false] (The 1st command with most arguments. Explodes on a set position with specified explosion power and creates fire on explosion!)
 
 ### Note
-Commands ran through a command block will probably not work. so i recommend running it normally.
+Some or most commands ran through a command block will probably not work. so i recommend running it normally. i didn't test it myself of course.
 
 ### Bugs?
 To be honest, i dont debug much since i made this when i was bored, so expect some bugs that can occur.
