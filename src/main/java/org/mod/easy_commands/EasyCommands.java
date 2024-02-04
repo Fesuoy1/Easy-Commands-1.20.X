@@ -14,6 +14,7 @@ import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.command.CommandManager;
@@ -42,6 +43,8 @@ public class EasyCommands implements ModInitializer {
 
     public static Boolean explosiveProjectilesEnabled = false;
 
+    public static Float power = 3.5f;
+
 
     @Override
     public void onInitialize() {
@@ -52,8 +55,18 @@ public class EasyCommands implements ModInitializer {
         }
     }
 
+    public static void explode(Entity entity) {
+        Vec3d pos = entity.getPos();
+        World world = entity.getWorld();
+        entity.discard();
+        world.createExplosion(entity, pos.getX(), pos.getY(), pos.getZ(), power, World.ExplosionSourceType.TNT);
+    }
 
-    /**
+    public static Boolean isExplosiveProjectilesEnabled() {
+        return explosiveProjectilesEnabled;
+    }
+
+        /**
      * <p>
      * Current working commands:
      * <p>
@@ -292,16 +305,34 @@ public class EasyCommands implements ModInitializer {
 
         dispatcher.register(CommandManager.literal("enableExplosiveProjectiles")
                         .requires(source -> source.hasPermissionLevel(4))
-                        .executes(context -> {
-                            explosiveProjectilesEnabled = !explosiveProjectilesEnabled;
-                            context.getSource().sendFeedback(() -> Text.literal("Run the command again to toggle it."), false);
-                            context.getSource().sendFeedback(() -> Text.literal("Explosive arrows enabled: " + explosiveProjectilesEnabled), false);
-                            return Command.SINGLE_SUCCESS;
-                        }));
+                        .then(CommandManager.argument("explosionPower", FloatArgumentType.floatArg(0.1f))
+                                .suggests((source, builder) -> {
+                                    builder.suggest(1);
+                                    builder.suggest(3);
+                                    builder.suggest(5);
+                                    builder.suggest(10);
+                                    return builder.buildFuture();
+                                })
+                            .executes(context -> {
+                                explosiveProjectilesEnabled = !explosiveProjectilesEnabled;
+                                power = FloatArgumentType.getFloat(context, "explosionPower");
+                                context.getSource().sendFeedback(() -> Text.literal("Run the command again to toggle it."), false);
+                                context.getSource().sendFeedback(() -> Text.literal("Explosive arrows enabled: " + explosiveProjectilesEnabled), false);
+                                return Command.SINGLE_SUCCESS;
+                        })));
 
         dispatcher.register(CommandManager.literal("modifyTreeHeight")
                 .requires(source -> source.hasPermissionLevel(4))
                 .then(CommandManager.argument("height", IntegerArgumentType.integer(1))
+                        .suggests((source, builder) -> {
+                            builder.suggest(2);
+                            builder.suggest(3);
+                            builder.suggest(5);
+                            builder.suggest(10);
+                            builder.suggest(20);
+                            builder.suggest(40);
+                            return builder.buildFuture();
+                        })
                         .executes(context -> {
                             treeHeight = IntegerArgumentType.getInteger(context, "height");
                             context.getSource().sendFeedback(() -> Text.literal("Tree height set to " + treeHeight), false);
@@ -313,14 +344,21 @@ public class EasyCommands implements ModInitializer {
                 .requires(source -> source.hasPermissionLevel(4))
                 .then(CommandManager.argument("position", Vec3ArgumentType.vec3())
                         .then(CommandManager.argument("explosionPower", FloatArgumentType.floatArg(0.1f))
+                                .suggests((source, builder) -> {
+                                    builder.suggest(1);
+                                    builder.suggest(3);
+                                    builder.suggest(5);
+                                    builder.suggest(10);
+                                    return builder.buildFuture();
+                                })
                                 .then(CommandManager.argument("createFire", BoolArgumentType.bool())
                                         .executes(context -> {
                                             ServerCommandSource source = context.getSource();
                                             ServerWorld world = source.getWorld();
 
                                             Vec3d pos = Vec3ArgumentType.getVec3(context, "position");
-                                            boolean createFire = BoolArgumentType.getBool(context, "createFire");
                                             float explosionPower = FloatArgumentType.getFloat(context, "explosionPower");
+                                            boolean createFire = BoolArgumentType.getBool(context, "createFire");
 
                                             world.createExplosion(null, pos.getX(), pos.getY(), pos.getZ(), explosionPower, createFire, World.ExplosionSourceType.TNT);
                                             return Command.SINGLE_SUCCESS;

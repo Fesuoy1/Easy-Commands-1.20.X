@@ -3,12 +3,12 @@
   "minVersion": "0.8",
   "package": "org.mod.easy_commands.mixins",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [],
-  "client": [
-    "TrunkPlacerMixin",
+  "mixins": [
     "PersistentProjectileEntityMixin",
-    "ProjectileEntityMixin"
+    "ProjectileEntityMixin",
+    "TrunkPlacerMixin"
   ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1
