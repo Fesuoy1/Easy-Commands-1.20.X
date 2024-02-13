@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "org.mod.easy_commands.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"PersistentProjectileEntityMixin",
+		"ProjectileEntityMixin",
+		"TrunkPlacerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
