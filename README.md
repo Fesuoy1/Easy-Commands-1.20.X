@@ -1,4 +1,5 @@
 ## This mod may stop being updated. [Click here](https://github.com/Fesuoy1/Easy-Commands-1.20.X/issues/2) for information.
+### Backported to 1.20.2
 
 Modrinth page: https://modrinth.com/mod/fesuoy-easy-commands
 
@@ -37,4 +38,4 @@ If you find any. You can report them [here](https://github.com/Fesuoy1/Easy-Comm
 Since this mod uses CommandRegistrationCallback, You will need to install [Fabric API](https://modrinth.com/mod/fabric-api)!
 
 ## This is Open Source.
-I probably will port this to future versions of minecraft available. But no plans for backporting. If you want to backport to older versions then you can [fork this repository](https://github.com/Fesuoy1/Easy-Commands-1.20.X/fork).
+I probably will port this to future versions of minecraft available. But probably no plans for more backporting. If you want to backport to older versions then you can [fork this repository](https://github.com/Fesuoy1/Easy-Commands-1.20.X/fork).
