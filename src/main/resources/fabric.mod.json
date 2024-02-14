@@ -3,7 +3,7 @@
 	"id": "easy_commands",
 	"version": "${version}",
 	"name": "Easy Commands",
-	"description": "Mod that adds some commands for easy usage",
+	"description": "Mod that adds some commands (and some gamerules) for easy usage",
 	"authors": [
 		"Fesuoy"
 	],
@@ -20,18 +20,19 @@
 			"org.mod.easy_commands.EasyCommands"
 		],
 		"client": [
-			"org.mod.easy_commands.client.EasyCommandsClient"
-		],
-		"fabric-datagen": [
-			"org.mod.easy_commands.EasyCommandsDataGenerator"
+			"org.mod.easy_commands.EasyCommandsClient"
 		]
 	},
 	"mixins": [
-		"easy_commands.mixins.json"
+		"easy_commands.mixins.json",
+		{
+			"config": "easy_commands.client.mixins.json",
+			"environment": "client"
+		}
 	],
 	"depends": {
 		"fabricloader": ">=0.14.9",
-		"minecraft": "~1.20.4",
+		"minecraft": "~1.20.2",
 		"java": ">=17",
 		"fabric-api": "*"
 	}
