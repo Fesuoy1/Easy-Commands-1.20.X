@@ -1,9 +1,0 @@
-{
-	"required": false,
-	"package": "org.mod.easy_commands.mixin.client",
-	"compatibilityLevel": "JAVA_17",
-	"client": [],
-	"injectors": {
-		"defaultRequire": 1
-	}
-}
