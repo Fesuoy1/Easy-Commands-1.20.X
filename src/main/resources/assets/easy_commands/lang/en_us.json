@@ -1,0 +1,5 @@
+{
+  "item.easy_commands.knockback_stick": "Knockback Stick",
+  "gamerule.easy_commands.treeHeight": "Tree Height",
+  "gamerule.easy_commands.explosiveProjectiles": "Should projectiles explode on impact"
+}
