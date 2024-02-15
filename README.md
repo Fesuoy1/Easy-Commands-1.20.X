@@ -1,5 +1,4 @@
 ## This mod may stop being updated. [Click here](https://github.com/Fesuoy1/Easy-Commands-1.20.X/issues/2) for information.
-### Backported to 1.20.2
 
 Modrinth page: https://modrinth.com/mod/fesuoy-easy-commands
 
