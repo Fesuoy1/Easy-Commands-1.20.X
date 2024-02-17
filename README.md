@@ -1,5 +1,3 @@
-## This mod may stop being updated. [Click here](https://github.com/Fesuoy1/Easy-Commands-1.20.X/issues/2) for information.
-
 Modrinth page: https://modrinth.com/mod/fesuoy-easy-commands
 
 ## Have you wanted to access minecraft commands easily? 
