@@ -1,3 +1,5 @@
+## ⚠️ This project is archived - A remake is releasing (for 1.21.10/11) soon! ⚠️
+
 Modrinth page: https://modrinth.com/mod/fesuoy-easy-commands
 
 ## Have you wanted to access minecraft commands easily? 
